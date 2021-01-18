@@ -11,7 +11,7 @@ class AuthService {
       const userExists = await _userService.getUserByUsername(username);
       if (userExists) {
          const error = new Error();
-         error.status(401);
+         error.status = 401;
          error.message = 'User already exists';
          throw error;
       }
@@ -24,7 +24,7 @@ class AuthService {
       const userExists = await _userService.getUserByUsername(username);
       if (!userExists) {
          const error = new Error();
-         error.status(404);
+         error.status = 404;
          error.message = 'Not Found: Invalid credentials';
          throw error;
       }
@@ -32,7 +32,7 @@ class AuthService {
       const validPassword = userExists.comparePasswords(password);
       if (!validPassword) {
          const error = new Error();
-         error.status(404);
+         error.status = 404;
          error.message = 'Not Found: Invalid credentials';
          throw error;
       }

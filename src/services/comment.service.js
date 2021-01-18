@@ -12,7 +12,7 @@ class CommentRepository extends BaseService {
    async getIdeaComments(ideaId) {
       if (!ideaId) {
          const error = new Error();
-         error.status(400);
+         error.status = 400;
          error.message = 'Bad Request: idea must be provided';
          throw error;
       }
@@ -21,7 +21,7 @@ class CommentRepository extends BaseService {
 
       if (!idea) {
          const error = new Error();
-         error.status(404);
+         error.status = 404;
          error.message = 'Not Found';
          throw error;
       }
@@ -33,7 +33,7 @@ class CommentRepository extends BaseService {
    async createComment(comment, ideaId) {
       if (!ideaId) {
          const error = new Error();
-         error.status(400);
+         error.status = 400;
          error.message = 'Bad Request: idea must be provided';
          throw error;
       }
@@ -42,7 +42,7 @@ class CommentRepository extends BaseService {
 
       if (!idea) {
          const error = new Error();
-         error.status(404);
+         error.status = 404;
          error.message = 'Not Found';
          throw error;
       }
