@@ -28,7 +28,6 @@ module.exports = ({ HomeRoutes, UserRoutes, IdeaRoutes, CommentRoutes, AuthRoute
 
    router.use(NotFoundMiddleware);
    router.use(ErrorMiddleware);
-   router.use(AuthMiddleware);
 
    return router;
 };
