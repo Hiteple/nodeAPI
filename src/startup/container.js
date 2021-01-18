@@ -5,16 +5,16 @@ const config = require('../config');
 const app = require('.');
 
 // Services
-const { HomeService, UserService, IdeaService, CommentService } = require('../services');
+const { HomeService, UserService, IdeaService, CommentService, AuthService } = require('../services');
 
 // Controllers
-const { HomeController, UserController, IdeaController, CommentController } = require('../controllers');
+const { HomeController, UserController, IdeaController, CommentController, AuthController } = require('../controllers');
 
 // Models
 const { User, Idea, Comment } = require('../models');
 
 // Routes
-const { HomeRoutes, UserRoutes, IdeaRoutes, CommentRoutes } = require('../routes/index.routes');
+const { HomeRoutes, UserRoutes, IdeaRoutes, CommentRoutes, AuthRoutes } = require('../routes/index.routes');
 const Routes = require('../routes');
 
 // Repositories
@@ -35,7 +35,8 @@ container
       HomeController: asClass(HomeController.bind(HomeController)).singleton(),
       UserController: asClass(UserController.bind(UserController)).singleton(),
       IdeaController: asClass(IdeaController.bind(IdeaController)).singleton(),
-      CommentController: asClass(CommentController.bind(CommentController)).singleton()
+      CommentController: asClass(CommentController.bind(CommentController)).singleton(),
+      AuthController: asClass(AuthController.bind(AuthController)).singleton()
    })
    // Models
    .register({
@@ -48,7 +49,8 @@ container
       HomeRoutes: asFunction(HomeRoutes).singleton(),
       UserRoutes: asFunction(UserRoutes).singleton(),
       IdeaRoutes: asFunction(IdeaRoutes).singleton(),
-      CommentRoutes: asFunction(CommentRoutes).singleton()
+      CommentRoutes: asFunction(CommentRoutes).singleton(),
+      AuthRoutes: asFunction(AuthRoutes).singleton()
    })
    // Services
    .register({
@@ -56,6 +58,7 @@ container
       UserService: asClass(UserService).singleton(),
       IdeaService: asClass(IdeaService).singleton(),
       CommentService: asClass(CommentService).singleton(),
+      AuthService: asClass(AuthService).singleton()
    })
    // Repositories
    .register({
